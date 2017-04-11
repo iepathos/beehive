@@ -7,3 +7,6 @@
 [submodule "qanda"]
 	path = qanda
 	url = https://github.com/iepathos/beehive_qanda
+[submodule "rego"]
+	path = rego
+	url = https://github.com/iepathos/beehive_rego
