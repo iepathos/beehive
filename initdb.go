@@ -18,6 +18,7 @@ var AppTables = []string{
 }
 
 func createDatabase(databaseName string) {
+	// connect to rethinkdb
 	session, err := r.Connect(r.ConnectOpts{
 		Address: "localhost:28015",
 	})
@@ -33,6 +34,7 @@ func createDatabase(databaseName string) {
 }
 
 func createTable(tableName string) {
+	// connect to rethinkdb
 	session, err := r.Connect(r.ConnectOpts{
 		Address: "localhost:28015",
 	})
