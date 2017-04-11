@@ -1,10 +1,6 @@
 package main
 
-import (
-	"log"
-
-	r "gopkg.in/gorethink/gorethink.v3"
-)
+import "github.com/iepathos/beehive/rego"
 
 // database name
 var DbName = "beehive"
@@ -17,43 +13,10 @@ var AppTables = []string{
 	"answers",
 }
 
-func createDatabase(databaseName string) {
-	// connect to rethinkdb
-	session, err := r.Connect(r.ConnectOpts{
-		Address: "localhost:28015",
-	})
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-
-	log.Println("Creating database", databaseName)
-	_, err = r.DBCreate(databaseName).Run(session)
-	if err != nil {
-		log.Println(err.Error())
-	}
-}
-
-func createTable(tableName string) {
-	// connect to rethinkdb
-	session, err := r.Connect(r.ConnectOpts{
-		Address: "localhost:28015",
-	})
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-
-	db := r.DB(DbName)
-
-	log.Println("Creating table", tableName)
-	if _, err := db.TableCreate(tableName).RunWrite(session); err != nil {
-		log.Println(err)
-	}
-}
-
 func main() {
-	createDatabase(DbName)
+	rego.CreateDatabase(DbName)
 
 	for _, v := range AppTables {
-		createTable(v)
+		rego.CreateTable(v)
 	}
 }
