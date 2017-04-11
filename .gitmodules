@@ -1,0 +1,9 @@
+[submodule "users"]
+	path = users
+	url = https://github.com/iepathos/beehive_users
+[submodule "chat"]
+	path = chat
+	url = https://github.com/iepathos/beehive_chat
+[submodule "qanda"]
+	path = qanda
+	url = https://github.com/iepathos/beehive_qanda
